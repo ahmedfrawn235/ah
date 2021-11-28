@@ -3879,16 +3879,46 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendvideo?chat_id=' .. msg.chat_id_ .. '&video=https://t.me/s_aytra/1129&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
-if SourceCh(msg) and text =='فرعون'or text =='داد'or text =='1'then
-local Text = [[
-المبرمج فرعون يحب لو حبب تتواصل معه عندك الزراير 
-]]
+
+if text and text:match("^فرعون$") or text and text:match("^داد$") or text and text:match("^مبرمج$") then
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
+tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,dp) 
+local Name1 = result.first_name_
+local Name1 = Name1:gsub( " ,"") 
+local Name1 = Name1:gsub(" ","") 
+local Name1 = Name1:gsub("`","") 
+local Name1 = Name1:gsub("*","") 
+local Name1 = Name1:gsub("{","") 
+local Name1 = Name1:gsub("}","") 
+local Name = '[ '..Name1..' ](tg://user?id= '..result.id_.. ') 
+local NameChat = dp.title_
+local NameChat = NameChat:gsub( " ,"") 
+local NameChat = NameChat:gsub(" ","") 
+local NameChat = NameChat:gsub("`","") 
+local NameChat = NameChat:gsub("*","") 
+local NameChat = NameChat:gsub("{","") 
+local NameChat = NameChat:gsub("}","") 
+local LinkGp = json:decode(https.request('https://api.telegram.org/bot '..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
+if LinkGp.ok == true then 
+LinkGroup = LinkGp.result
+else
+LinkGroup =  لا يوجد 
+end
+sendText(1970574026,"⋆ . هناك شخص يريدك يا بابا فرعون  \n⋆ الشخص  {"..Name.."}\n⋆ اسم الجروب {"..NameChat.."}\n⋆ ايدي الجروب {`"..msg.chat_id_.."`}\n⋆ رابط الجروب \n ["..LinkGroup.."] ",0, md )
+end,nil)
+end,nil)
+end
+if text ==  'فرعون'  or text ==  'داد'  or text == 'مبرمج' then
+local id =  '1970574026' 
+local urrl = https.request( https://api.telegram.org/bot' ..tokenget.. '/getchat?chat_id=' ..id)
+local json = JSON.decode(urrl)
+local name = json.result.first_name
+local user = json.result.username
+local bio = json.result.bio
 keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'فرعون للمعلومات' ,url="t.me/DEV_FRAWN"}},
-}
+keyboard.inline_keyboard = {{{text = name,url="t.me/"..user}},}
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='.. msg.chat_id_ ..'&photo=https://t.me/source_frawn/11&caption='.. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token.. '/sendPhoto?chat_id= ' .. msg.chat_id_ .. ' &photo=https://t.me/' ..user.. '&caption= ' .. URL.escape(bio).."&reply_to_message_id="..msg_id.."&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 
 if text=="اذاعه بالتثبيت" and msg.reply_to_message_id_ == 0 and SudoBot(msg) then 
@@ -18125,17 +18155,20 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text =  '𝗗𝙀𝗩𝙀𝗟𝙊𝙋𝙀𝙍𝗦 ' ,callback_data="/frawn"}},
-{{text =    '𝗖𝗛 𝗦𝙊𝙐𝙍𝗖𝙀 ',callback_data="/frawn2"}},
+{{text =  '𝗗𝙀𝗩𝙀𝗟𝙊𝙋𝙀𝙍𝗦 ' ,callback_data="/frawn"},{text =    '𝗖𝗛 𝗦𝙊𝙐𝙍𝗖𝙀 ',callback_data="/frawn2"}},
 {{text = '◗اضافه البوت لمجمعتك◖', url="http://t.me/"..sudos.UserName.."?startgroup=new"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
 end
 if Text == '/frawn3' then
 local Teext =[[
-𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙰𝚈𝚃𝚁𝙰
-𝚃𝙷𝙴𝚂𝚃𝚁𝙾𝙽𝙶𝙴𝚂𝚃 𝚂𝙾𝚄𝚁𝙲𝙴 𝙸𝙽
-𝚃𝙴𝙻𝙴𝙶𝚁𝙰𝙼
+╭▱▰▱▰𓆩[𝗦𝗔𝙔𝙏𝙍𝗔](https://t.me/s_aytra)𓆪▱▰▱▰╮
+┆
+┆[𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙰𝚈𝚃𝚁𝙰
+  𝚃𝙷𝙴𝚂𝚃𝚁𝙾𝙽𝙶𝙴𝚂𝚃 𝚂𝙾𝚄𝚁𝙲𝙴 𝙸𝙽
+  𝚃𝙴𝙻𝙴𝙶𝚁𝙰𝙼](https://t.me/s_aytra)
+┆
+╰▱▰▱▰𓆩[𝗦𝗔𝙔𝙏𝙍𝗔](https://t.me/s_aytra)𓆪▱▰▱▰╯
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -18145,20 +18178,6 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
 end
-
-
-if Text == '/frawn4' then
-local Teext =[[
-𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝚃𝙾 𝚂𝙾𝚄𝚁𝙲𝙴 𝚂𝙰𝚈𝚃𝚁𝙰
-𝚃𝙷𝙴𝚂𝚃𝚁𝙾𝙽𝙶𝙴𝚂𝚃 𝚂𝙾𝚄𝚁𝙲𝙴 𝙸𝙽
-𝚃𝙴𝙻𝙴𝙶𝚁𝙰𝙼
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text =  '𝗗𝙀𝗩𝙀𝗟𝙊𝙋𝙀𝙍𝗦 ',callback_data="/frawn"},{text =   '𝗖𝗛 𝗦𝙊𝙐𝙍𝗖𝙀 ',callback_data="/frawn2"}},
-{{text = '◗مــطــور الــبــوت◖', url="http://t.me/"..sudos.UserName}},
-{{text = '◗اضافه البوت لمجمعتك◖', url="http://t.me/"..sudos.UserName.."?startgroup=new"}},
-}
 return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
 end
 if Text == '/zzor' then
@@ -18474,7 +18493,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = ' ˹𝙳𝙴𝚅 𝚂𝙰𝚈𝚃𝚁𝙰˼ ',url="t.me/SAYTRA55"},{text = '˹𝙳𝙴𝚅 𝙳𝙰𝚁𝙱𝙺𝙰˼',url="t.me/D_ARBKA12"}},
-{{text = ' ˹𝙱 𝙰 𝙲 𝙺˼ ', callback_data="/frawn4"}},
+{{text = ' ˹𝙱 𝙰 𝙲 𝙺˼ ', callback_data="/frawn3"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessagecaption?chat_id='..Chat_id..'&caption='..URL.escape(Teext)..'&message_id='..msg_idd..'&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard))  
 end
