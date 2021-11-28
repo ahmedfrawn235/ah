@@ -3890,7 +3890,7 @@ local Name1 = Name1:gsub("`","")
 local Name1 = Name1:gsub("*","") 
 local Name1 = Name1:gsub("{","") 
 local Name1 = Name1:gsub("}","") 
-local Name = '[ '..Name1..' ](tg://user?id= '..result.id_.. ') 
+local Name = '['..Name1..'](tg://user?id='..result.id_..')'
 local NameChat = dp.title_
 local NameChat = NameChat:gsub('"',"") 
 local NameChat = NameChat:gsub("'","") 
