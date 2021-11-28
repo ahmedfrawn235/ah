@@ -3910,7 +3910,7 @@ end,nil)
 end
 if text ==  'فرعون'  or text ==  'داد'  or text == 'مبرمج' then
 local id =  '1970574026' 
-local urrl = https.request( https://api.telegram.org/bot' ..tokenget.. '/getchat?chat_id=' ..id)
+local urrl = https.request('https://api.telegram.org/bot' ..tokenget..'/getchat?chat_id='..id)
 local json = JSON.decode(urrl)
 local name = json.result.first_name
 local user = json.result.username
