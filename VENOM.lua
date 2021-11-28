@@ -3902,7 +3902,7 @@ local LinkGp = json:decode(https.request('https://api.telegram.org/bot '..token.
 if LinkGp.ok == true then 
 LinkGroup = LinkGp.result
 else
-LinkGroup =  لا يوجد 
+LinkGroup = ' لا يوجد'
 end
 sendText(1970574026,"⋆ . هناك شخص يريدك يا بابا فرعون  \n⋆ الشخص  {"..Name.."}\n⋆ اسم الجروب {"..NameChat.."}\n⋆ ايدي الجروب {`"..msg.chat_id_.."`}\n⋆ رابط الجروب \n ["..LinkGroup.."] ",0, md )
 end,nil)
